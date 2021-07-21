@@ -25,6 +25,8 @@ else
   previous_tag=$FROM_TAG
 fi
 
+echo "previous_tag: $previous_tag"
+
 if [ -z "$TO_TAG" -a -z "$PRERELEASE" ]; then
   echo "No to-tag passed. Fallbacking to git previous tag."
   new_tag=$(git tag --sort version:refname | grep -e "^v\d*.\d*.\d*$" | tail -n 1)
@@ -35,6 +37,8 @@ else
   echo "To-tag detected. Using its value."
   new_tag=$TO_TAG
 fi
+
+echo "new_tag: $new_tag"
 
 if [ -z "$TYPE" ]; then
   echo "No type passed. Fallbacking to unset."
