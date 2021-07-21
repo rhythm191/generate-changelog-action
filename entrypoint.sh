@@ -15,7 +15,7 @@ else
 fi
 
 if [ -z "$FROM_TAG" -a -z "$PRERELEASE" ]; then
-  echo "No from-tag passed. Fallbacking to git previous tag."
+  echo "No from-tag passed. Fallbacking to git previous tag without prerelease."
   previous_tag=$(git tag --sort version:refname | grep -e "^v\d*.\d*.\d*$" | tail -n 2 | head -n 1)
 elif [ -z "$FROM_TAG" ]; then
   echo "No from-tag passed. Fallbacking to git previous tag."
@@ -28,7 +28,7 @@ fi
 echo "previous_tag: $previous_tag"
 
 if [ -z "$TO_TAG" -a -z "$PRERELEASE" ]; then
-  echo "No to-tag passed. Fallbacking to git previous tag."
+  echo "No to-tag passed. Fallbacking to git previous tag without prerelease."
   new_tag=$(git tag --sort version:refname | grep -e "^v\d*.\d*.\d*$" | tail -n 1)
 elif [ -z "$TO_TAG" ]; then
   echo "No to-tag passed. Fallbacking to git previous tag."
