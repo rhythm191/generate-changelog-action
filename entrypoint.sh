@@ -14,7 +14,7 @@ else
   cp "$PACKAGE_DIR" package.json
 fi
 
-if [ -z "$FROM_TAG" -a -z "$NOT_PRERELEASE" ]; then
+if [ -z "$FROM_TAG" -a -z "$PRERELEASE" ]; then
   echo "No from-tag passed. Fallbacking to git previous tag."
   previous_tag=$(git tag --sort version:refname | grep -e "^v\d*.\d*.\d*$" | tail -n 2 | head -n 1)
 elif [ -z "$FROM_TAG" ]; then
@@ -25,7 +25,7 @@ else
   previous_tag=$FROM_TAG
 fi
 
-if [ -z "$TO_TAG" -a -z "$NOT_PRERELEASE" ]; then
+if [ -z "$TO_TAG" -a -z "$PRERELEASE" ]; then
   echo "No to-tag passed. Fallbacking to git previous tag."
   new_tag=$(git tag --sort version:refname | grep -e "^v\d*.\d*.\d*$" | tail -n 1)
 elif [ -z "$TO_TAG" ]; then
