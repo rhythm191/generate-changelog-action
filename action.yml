@@ -39,8 +39,8 @@ runs:
   env:
     PACKAGE_DIR: ${{ inputs.package-dir }}
     FROM_TAG: ${{ inputs.from-tag }}
-    PRERELEASE: ${{ inputs.to-tag }}
-    TYPE: ${{ inputs.prerelease }}
+    TO_TAG: ${{ inputs.to-tag }}
+    PRERELEASE: ${{ inputs.prerelease }}
     TYPE: ${{ inputs.type }}
     EXCLUDE: ${{ inputs.exclude }}
     ALLOW_UNKNOWN: ${{ inputs.allow-unknown }}
