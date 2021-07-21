@@ -17,6 +17,10 @@ inputs:
     description: 'The tag to generate changelog up to'
     required: false
     default: ''
+  pre-release:
+    description: 'Conside pre-release'
+    required: true
+    default: ''
   type:
     description: 'Type of changelog: patch, minor, or major'
     required: false
