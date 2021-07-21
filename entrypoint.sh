@@ -16,7 +16,7 @@ fi
 
 if [ -z "$FROM_TAG" ]; then
   echo "No from-tag passed. Fallbacking to git previous tag."
-  previous_tag=$(git tag --sort version:refname | tail -n 2 | head -n 1)
+  previous_tag=$(git tag --sort creatordate | tail -n 2 | head -n 1)
 else
   echo "From-tag detected. Using its value."
   previous_tag=$FROM_TAG
@@ -24,7 +24,7 @@ fi
 
 if [ -z "$TO_TAG" ]; then
   echo "No to-tag passed. Fallbacking to git previous tag."
-  new_tag=$(git tag --sort version:refname | tail -n 1)
+  new_tag=$(git tag --sort creatordate | tail -n 1)
 else
   echo "To-tag detected. Using its value."
   new_tag=$TO_TAG
